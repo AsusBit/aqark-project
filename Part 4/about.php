@@ -1,0 +1,98 @@
+<?php 
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Aqark</title>
+    <link rel="stylesheet" href="about.css">
+    <style>
+        table {
+            width: 80%; /* Adjusted width */
+            margin: 0 auto; /* Centering the table */
+            border-collapse: collapse;
+            margin-left: 100px; /* Adjusted margin */
+            margin-top: 10px;
+        }
+        
+        th, td {
+            border: 1px solid;
+            padding: 8px;
+            text-align: center;
+            color: rgb(249, 245, 245);
+            font-weight: 100;
+            font-size: large;
+        } 
+        .about-section {
+            padding-top: 100px; /* Adjusted padding */
+            margin-left: 150px; /* Adjusted margin */
+            color: rgb(247, 242, 242);
+        }
+        .about-text {
+            text-align: left; /* Aligning text to the left */
+            margin-left:90px; /* Adjusted margin */
+            color: rgb(248, 248, 248);
+        }
+        .about-section-2 {
+            padding-top: 140px; /* Adjusted padding */
+            margin-left: 100px; /* Adjusted margin */
+            color: rgb(247, 242, 242);
+        }
+    </style>
+</head>
+<body>
+<?php
+    include("navbar.html");
+    ?>
+    <div class="main-content">
+        <div class="background-image">
+            <section class="about-section">
+                <h1>About Us</h1>
+                <div class="about-text">
+                    <p>We are a proffesional company that provides the creation of making buildings, contracts and starting state projects with low prices and fast running contracts.
+                        This helps people overview their starting business and run it carefully and easily along with making large amount of profit and happier contract making.
+                    </p>
+                    <h2>Our Team</h2>
+                </div>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Position</th>
+                    </tr>
+                    <tr>
+                        <td>Said Amur</td>
+                        <td>CEO</td>
+                    </tr>
+                    <tr>
+                        <td>Jameel Salim</td>
+                        <td>Marketing Director</td>
+                    </tr>
+                    <tr>
+                        <td>Ahmed Abdulaziz</td>
+                        <td>Head of Operations</td>
+                    </tr>
+                    <tr>
+                        <td>Mazin Ahmed</td>
+                        <td>Head of Operations</td>
+                    </tr><tr>
+                        <td>Abdulrahman Mohammed</td>
+                        <td>Head of Operations</td>
+                    </tr><tr>
+                        <td>Omran Yousef</td>
+                        <td>Head of Operations</td>
+                    </tr>
+                </table>
+            </section>
+            <section class="about-section-2">
+                <h1>To contact us use this email:</h1>
+                <h1>Aqark.Oman@gmail.com</h1>
+            </section>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Your Website. All rights reserved.</p>
+    </footer>
+</body>
+</html>
