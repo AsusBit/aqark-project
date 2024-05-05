@@ -39,29 +39,38 @@ $type = '';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>buildings</title>
+    <link rel="stylesheet" href="Home-Style.css">
+    <style>
+        body{
+            margin-left: 32%;
+            margin-top: 10%;
+        }
+    </style>
      <!-- name number_of_rooms no_business_contracts cost -->
 </head>
 <body>
-<?php if($type == ''){
+<?php 
+include('navbar.html');
+if($type == ''){
     echo "<h1>Buildings List:</h1>
     <form>
-    <button type='submit' name='add'>add a building</button>
-    <button type='submit' name = 'delete'>delete a building</button>
+    <button style='width: 140px; height:50px; margin:10px; font-size:18px; background-color: green; border: none; border-radius: 10px 10px 10px 10px; color: white; cursor:pointer;' type='submit' name='add'>add a Building</button>
+    <button style='width: 140px; height:50px; margin:10px; font-size:18px; background-color: red; border: none; border-radius: 10px 10px 10px 10px; color: white; cursor:pointer;' type='submit' name = 'delete'>delete a Building</button>
     </form>";
     }
-    echo "<table border=1> 
+    echo "<table border=1 style='background-color: #333; color: white; margin-left: -100px;'> 
         <tr>
-            <th>Name of building</th>
-            <th>Cost</th>
-            <th>Number of rooms</th>
-            <th>number of contracts</th>
+            <th style='color: grey; padding:10px; width:220px'>Name of building</th>
+            <th style='color: grey; padding:10px; width:120px'>Cost</th>
+            <th style='color: grey; padding:10px; width:180px'>Number of rooms</th>
+            <th style='color: grey; padding:10px; width:180px'>number of contracts</th>
         </tr>"; 
         
         foreach ($searchResults as $i) {echo "<tr>
-            <td>", $i['name']," </td>
-            <td>", $i['cost'], " </td>
-            <td>", $i['number_of_rooms'], " </td>
-            <td>", $i['no_business_contracts'], "</td>
+            <td  >", $i['name']," </td>
+            <td  >", $i['cost'], " </td>
+            <td  >", $i['number_of_rooms'], " </td>
+            <td  >", $i['no_business_contracts'], "</td>
             </tr>";} 
         echo "</table>";
     if(isset($_GET['delete'])){
@@ -114,7 +123,7 @@ $type = '';
                 $stmt->bind_param("sddd", $rowName, $rowRooms, $rowContracts, $rowCost);
                 if ($stmt->execute()) {
                     if (!isset($_GET['refreshed'])) {
-                        header("Refresh: 0; url=modify.php?refreshed=true");
+                        header("Refresh: 0; url=modifyBuildings.php?refreshed=true");
                     }
                 } else {
                     echo "Error adding record: " . $conn->error;

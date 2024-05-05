@@ -19,15 +19,15 @@
     <div class="main-content">
         <div class="background-image">
             <section class="boxes">
-                <div class="box" >
+                <div class="box" onclick="goToHome('modifyBuildings.php')">
                     <h2>Buildings</h2>
                     <img src="bg3.webp" alt="Image 1">
                 </div>
-                <div class="box" >
+                <div class="box" onclick="goToHome('modifyContracts.php')">
                     <h2>Contracts</h2>
                     <img src="bg2.jpg" alt="Image 2">
                 </div>
-                <div class="box">
+                <div class="box" onclick="goToHome('modifyWorkers.php')">
                     <h2>Workers</h2>
                     <img src="bg1.jpg" alt="Image 3">
                 </div>

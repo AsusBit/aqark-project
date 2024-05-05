@@ -39,29 +39,38 @@ $type = '';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>workers</title>
+    <link rel="stylesheet" href="Home-Style.css">
+    <style>
+        body{
+            margin-left: 32%;
+            margin-top: 10%;
+        }
+    </style>
      <!-- name number_of_rooms no_business_contracts cost -->
 </head>
 <body>
-<?php if($type == ''){
+<?php 
+include('navbar.html');
+if($type == ''){
     echo "<h1>Workers List:</h1>
     <form>
-    <button type='submit' name='add'>add a Worker</button>
-    <button type='submit' name = 'delete'>delete a Worker</button>
+    <button style='width: 140px; height:50px; margin:10px; font-size:18px; background-color: green; border: none; border-radius: 10px 10px 10px 10px; color: white; cursor:pointer;' type='submit' name='add'>add a Worker</button>
+    <button style='width: 140px; height:50px; margin:10px; font-size:18px; background-color: red; border: none; border-radius: 10px 10px 10px 10px; color: white; cursor:pointer;' type='submit' name = 'delete'>delete a Worker</button>
     </form>";
     }
-    echo "<table border=1> 
+    echo "<table border=1 style='background-color: #333; color: white; border-style:solid; border-color:white;'> 
         <tr>
-            <th>Name of worker</th>
-            <th>Age</th>
-            <th>Wage</th>
-            <th>Specialization</th>
+            <th style='color: grey; padding:10px; width:180px'>Name of worker</th>
+            <th style='color: grey; width: 50px;'>Age</th>
+            <th style='color: grey;  width: 60px;'>Wage</th>
+            <th style='color: grey;  width: 250px;'>Specialization</th>
         </tr>"; 
         
         foreach ($searchResults as $i) {echo "<tr>
-            <td>", $i['name']," </td>
-            <td>", $i['age'], " </td>
-            <td>", $i['wage'], " </td>
-            <td>", $i['specialization'], "</td>
+            <td >", $i['name']," </td>
+            <td  >", $i['age'], " </td>
+            <td  >", $i['wage'], " </td>
+            <td  >", $i['specialization'], "</td>
             </tr>";} 
         echo "</table>";
     if(isset($_GET['delete'])){
@@ -79,9 +88,7 @@ $type = '';
                 $stmt = $conn->prepare($sql);
                 $stmt->bind_param("s", $rowToDel);
                 if ($stmt->execute()) {
-                    if (!isset($_GET['refreshed'])) {
-                        header("Refresh: 0; url=modifyWorkers.php?refreshed=true");
-                    }
+                    header("Refresh: 0; url=modifyWorkers.php?refreshed=true");
                 } else {
                     echo "Error deleting record: " . $conn->error;
                 }
@@ -113,9 +120,7 @@ $type = '';
                 $stmt = $conn->prepare($sql);
                 $stmt->bind_param("sdds", $rowName, $rowAge, $rowWage, $rowSpecs);
                 if ($stmt->execute()) {
-                    if (!isset($_GET['refreshed'])) {
-                        header("Refresh: 0; url=modifyWorkers.php?refreshed=true");
-                    }
+                    header("Refresh: 0; url=modifyWorkers.php?refreshed=true");
                 } else {
                     echo "Error adding record: " . $conn->error;
                 }
@@ -127,7 +132,6 @@ $type = '';
 
     $conn->close();
     ?>
-
     <!-- I am gonna put the changing stuff in this form below to happen after committing the name -->
     
     
