@@ -51,7 +51,7 @@
             <section class="about-section">
                 <h1>About Us</h1>
                 <div class="about-text">
-                    <p>We are a proffesional company that provides the creation of making buildings, contracts and starting state projects with low prices and fast running contracts.
+                    <p>We are a profesional company that provides the creation of making buildings, contracts and starting state projects with low prices and fast running contracts.
                         This helps people overview their starting business and run it carefully and easily along with making large amount of profit and happier contract making.
                     </p>
                     <h2>Our Team</h2>
@@ -75,10 +75,10 @@
                     </tr>
                     <tr>
                         <td>Mazin Ahmed</td>
-                        <td>Head of Operations</td>
+                        <td>Head of Sales</td>
                     </tr><tr>
                         <td>Abdulrahman Mohammed</td>
-                        <td>Head of Operations</td>
+                        <td>Head of Design</td>
                     </tr><tr>
                         <td>Omran Yousef</td>
                         <td>Head of Operations</td>

@@ -42,7 +42,7 @@ $type = '';
     <link rel="stylesheet" href="Home-Style.css">
     <style>
         body{
-            margin-left: 32%;
+            margin-left: 40%;
             margin-top: 10%;
         }
     </style>
@@ -61,19 +61,17 @@ if($type == ''){
     echo "<table border=1 style='background-color: #333; color: white; margin-left:-100px;'> 
         <tr>
             <th style='color: grey; padding:10px; width:200px'>Name of contract</th>
-            <th style='color: grey; padding:10px; width:120px'>Start date</th>
-            <th style='color: grey; padding:10px; width:120px'>End date</th>
             <th style='color: grey; padding:10px; width:100px'>Cost</th>
             <th style='color: grey; padding:10px; width:150px'>place</th>
         </tr>"; 
         
         foreach ($searchResults as $i) {echo "<tr>
-            <td >", $i['name']," </td>
-            <td >", $i['date_begin'], " </td>
-            <td >", $i['date_end'], " </td>
-            <td >", $i['cost'], "</td>
-            <td >", $i['place'], "</td>
+            <td>", $i['name'],"</td>
+            
+            <td>", $i['cost'], "</td>
+            <td>", $i['place'], "</td>
             </tr>";} 
+        
         echo "</table>";
     if(isset($_GET['delete'])){
             $type = '1';
@@ -90,9 +88,7 @@ if($type == ''){
                 $stmt = $conn->prepare($sql);
                 $stmt->bind_param("s", $rowToDel);
                 if ($stmt->execute()) {
-                    if (!isset($_GET['refreshed'])) {
-                        header("Refresh: 0; url=modifyContracts.php?refreshed=true");
-                    }
+                    header("Refresh: 0; url=modifyContracts.php?refreshed=true");
                 } else {
                     echo "Error deleting record: " . $conn->error;
                 }
@@ -105,10 +101,7 @@ if($type == ''){
             echo "<form method='get' action='modifyContracts.php'>
             <label for='contractName'>Name:</label>
             <input type='text' name = 'contractName'>
-            <label for='dateB'>Start date:</label>
-            <input type='date' name = 'dateB'>
-            <label for='dateE'>End date:</label>
-            <input type='date' name = 'dateE'>
+            
             <label for='cost'>Cost:</label>
             <input type='number' name = 'cost'>
             <label for='place'>Place:</label>
@@ -127,9 +120,7 @@ if($type == ''){
                 $stmt = $conn->prepare($sql);
                 $stmt->bind_param("sssds", $rowName, $rowStart, $rowEnd, $rowCost, $rowPlace);
                 if ($stmt->execute()) {
-                    if (!isset($_GET['refreshed'])) {
-                        header("Refresh: 0; url=modifyContracts.php?refreshed=true");
-                    }
+                    header("Refresh: 0; url=modifyContracts.php?refreshed=true");
                 } else {
                     echo "Error adding record: " . $conn->error;
                 }
