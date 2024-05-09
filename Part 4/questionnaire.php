@@ -68,8 +68,6 @@ input[type="submit"]:hover {
     </style>
 </head>
 <body>
-    <!-- Your existing code -->
-
     <div class="main-content">
         <form id="questionnaireForm" style="margin-top:150px;">
             <h1>Questionnaire Page</h1>
@@ -127,12 +125,16 @@ input[type="submit"]:hover {
             }
 
             <?php
-            $subscribe = isset($_GET['subscribe']) ? 1 : 0;
+            $subscribe = isset($_GET['subscribe']) ? 1 : 0; // this line is to set 1 or 0 values taken from the subscribe to newsletter checkbox
+            // an if statement that checks if everything other than the checkbox is checked or has a value to put into the db
             if (isset($_GET['satisfied']) && isset($_GET['feedback']) && isset($_GET['name']) && isset($_GET['email'])){
-                echo '<script>alert(', $_GET['satisfied'], ');';
+                // raw SQL code that uses insert to put values into a newly made row in the db, but it uses parameters to include php variables in the SQL code
                 $sql = 'INSERT INTO questionnaire (name, email, feedback, satisfied, subscribe) VALUES (?, ?, ?, ?, ? );';
+                // stmt is used to prepare the sql code through the connection with the db
                 $stmt = $conn->prepare($sql);
+                // stmt is used to put in php variables instead of ? 
                 $stmt->bind_param('sssdd', $_GET['name'], $_GET['email'], $_GET['feedback'], $_GET['satisfied'], $subscribe);
+                // executing the SQL code with the arguments inserted
                 $stmt->execute();
 
             }
@@ -140,6 +142,5 @@ input[type="submit"]:hover {
         });
     </script>
 
-    <!-- Your existing code -->
 </body>
 </html>

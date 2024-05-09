@@ -77,17 +77,15 @@ $conn->close();
             <th>End date</th>
             <th>Cost</th>
             <th>Place</th>
-
-            <!-- Add more columns as needed -->
         </tr>
-        <?php foreach ($searchResults as $row) : ?>
+        <?php // this is a foreach that loops through each row's information from the contracts table in MySQL and displays it as table data
+         foreach ($searchResults as $row) : ?>
             <tr>
                 <td><?php echo $row["name"]; ?></td>
                 <td><?php echo $row["date_begin"]; ?></td>
                 <td><?php echo $row['date_end']; ?></td>
                 <td><?php echo $row['cost'], ' omr'; ?></td>
                 <td><?php echo $row['place']; ?></td>
-                <!-- Display additional columns here -->
             </tr>
         <?php endforeach; ?>
     </table>

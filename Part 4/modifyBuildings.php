@@ -4,12 +4,13 @@ $username = "root";
 $password = null;
 $database = "aqark";
 
-
+// establishing connection with the server, or showing error if trouble occurs
 $conn = new mysqli($servername, $username, $password, $database);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+// selecting every row and column from the workers table in the db
 $sql = "SELECT * FROM buildings";
 $stmt = $conn->prepare($sql);
 // Execute query
@@ -83,7 +84,9 @@ if($type == ''){
             </form>
             ";}
         if (isset($_GET['deleteBtn'])){
+             //assigning variables from the form
                 $rowToDel = $_GET['buildingName'];
+                // raw SQL code that takes parameters, put in the parameters and execute the code, then refresh the page
                 $sql = "DELETE FROM buildings WHERE name= ?" ;
                 $stmt = $conn->prepare($sql);
                 $stmt->bind_param("s", $rowToDel);
@@ -114,11 +117,14 @@ if($type == ''){
             </form>
             ";}
         if (isset($_GET['addBtn'])){
+            //assigning variables from the form
                 $rowName = $_GET['buildingName'];
                 $rowCost = $_GET['buildingCost'];
                 $rowRooms = $_GET['roomsNumber'];
                 $rowContracts = $_GET['contractsNumber'];
+                 // raw SQL code that uses insert to put values into a newly made row in the db, but it uses parameters to include php variables in the SQL code
                 $sql = "INSERT INTO buildings (name, number_of_rooms, no_business_contracts, cost) VALUES (?, ?, ?, ?);" ;
+                // stmt is used to prepare the sql code through the connection with the db
                 $stmt = $conn->prepare($sql);
                 $stmt->bind_param("sddd", $rowName, $rowRooms, $rowContracts, $rowCost);
                 if ($stmt->execute()) {
@@ -137,7 +143,6 @@ if($type == ''){
     $conn->close();
     ?>
 
-    <!-- I am gonna put the changing stuff in this form below to happen after committing the name -->
     
     
 </body>

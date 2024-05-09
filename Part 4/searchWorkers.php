@@ -63,7 +63,7 @@ $conn->close();
 
 <body>
     <h2>Search Workers</h2>
-    <form method="post" action="<?php echo htmlspecialchars('searchWorkers.php'); ?>">
+    <form method="post" action="searchWorkers.php">
         <label for="searchName">Name:</label>
         <input type="text" id="searchName" name="searchName" value="<?php echo $searchName; ?>"><br><br>
         <input type="submit" value="Search">
@@ -76,16 +76,14 @@ $conn->close();
             <th>Age</th>
             <th>Wage</th>
             <th>Specialization</th>
-
-            <!-- Add more columns as needed -->
         </tr>
-        <?php foreach ($searchResults as $row) : ?>
+        <?php // this is a foreach that loops through each row's information from the workers table in MySQL and displays it as table data
+        foreach ($searchResults as $row) : ?>
             <tr>
                 <td><?php echo $row["name"]; ?></td>
                 <td><?php echo $row["age"]; ?></td>
                 <td><?php echo $row['wage'], ' omr'; ?></td>
                 <td><?php echo $row['specialization']; ?></td>
-                <!-- Display additional columns here -->
             </tr>
         <?php endforeach; ?>
     </table>

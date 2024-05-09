@@ -76,16 +76,14 @@ $conn->close();
             <th>Cost</th>
             <th>Number of rooms</th>
             <th>number of contracts</th>
-
-            <!-- Add more columns as needed -->
         </tr>
-        <?php foreach ($searchResults as $row) : ?>
+        <?php // this is a foreach that loops through each row's information from the buildings table in MySQL and displays it as table data
+        foreach ($searchResults as $row) : ?>
             <tr>
                 <td><?php echo $row["name"]; ?></td>
                 <td><?php echo $row["cost"], ' omr'; ?></td>
                 <td><?php echo $row['number_of_rooms']; ?></td>
                 <td><?php echo $row['no_business_contracts']; ?></td>
-                <!-- Display additional columns here -->
             </tr>
         <?php endforeach; ?>
     </table>

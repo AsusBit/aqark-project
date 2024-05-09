@@ -4,12 +4,12 @@ $username = "root";
 $password = null;
 $database = "aqark";
 
-
+// establishing connection with the server, or showing error if trouble occurs
 $conn = new mysqli($servername, $username, $password, $database);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
+// selecting every row and column from the workers table in the db
 $sql = "SELECT * FROM workers";
 $stmt = $conn->prepare($sql);
 // Execute query
@@ -28,7 +28,7 @@ $stmt->close();
 $isNamed = false;
 $nameChosen = '';
 $type = '';
-//what type of modification? insert, update or delete
+
 
 
 
@@ -46,12 +46,13 @@ $type = '';
             margin-top: 10%;
         }
     </style>
-     <!-- name number_of_rooms no_business_contracts cost -->
+     
 </head>
 <body>
 <?php 
 include('navbar.html');
 if($type == ''){
+    // displaying everything needed as the html before picking between adding and removing
     echo "<h1>Workers List:</h1>
     <form>
     <button style='width: 140px; height:50px; margin:10px; font-size:18px; background-color: green; border: none; border-radius: 10px 10px 10px 10px; color: white; cursor:pointer;' type='submit' name='add'>add a Worker</button>
@@ -75,6 +76,7 @@ if($type == ''){
         echo "</table>";
     if(isset($_GET['delete'])){
             $type = '1';
+            // displaying a form to ask the needed information in order to delete
             echo "<form method='get' action='modifyWorkers.php'>
             <label for='workerName'>Choose a worker to delete:</label>
             <input type='text' name = 'workerName'>
@@ -83,10 +85,15 @@ if($type == ''){
             </form>
             ";}
         if (isset($_GET['deleteBtn'])){
-                $rowToDel = $_GET['workerName'];
+             //assigning variables from the form
+                $rowToDel = $_GET['workerName'];                
+                // raw SQL code that uses insert to put values into a newly made row in the db, but it uses parameters to include php variables in the SQL code
                 $sql = "DELETE FROM workers WHERE name= ?" ;
+                // stmt is used to prepare the sql code through the connection with the db
                 $stmt = $conn->prepare($sql);
+                // stmt is used to put in php variables instead of ? 
                 $stmt->bind_param("s", $rowToDel);
+                // if the sql code gets executed without error, the page refreshes to display the new modified table
                 if ($stmt->execute()) {
                     header("Refresh: 0; url=modifyWorkers.php?refreshed=true");
                 } else {
@@ -98,6 +105,7 @@ if($type == ''){
     elseif (isset($_GET['add'])){
         
             $type = '1';
+            // displaying a form to ask the needed information in order to add
             echo "<form method='get' action='modifyWorkers.php'>
             <label for='workerName'>Name:</label>
             <input type='text' name = 'workerName'>
@@ -112,13 +120,18 @@ if($type == ''){
             </form>
             ";}
         if (isset($_GET['addBtn'])){
+             //assigning variables from the form
                 $rowName = $_GET['workerName'];
                 $rowAge = $_GET['workerAge'];
                 $rowWage = $_GET['workerWage'];
                 $rowSpecs = $_GET['specialization'];
+                // raw SQL code that uses insert to put values into a newly made row in the db, but it uses parameters to include php variables in the SQL code
                 $sql = "INSERT INTO workers (name, age, wage, specialization) VALUES (?, ?, ?, ?);" ;
+                // stmt is used to prepare the sql code through the connection with the db
                 $stmt = $conn->prepare($sql);
+                // stmt is used to put in php variables instead of ? 
                 $stmt->bind_param("sdds", $rowName, $rowAge, $rowWage, $rowSpecs);
+                // if the sql code gets executed without error, the page refreshes to display the new modified table
                 if ($stmt->execute()) {
                     header("Refresh: 0; url=modifyWorkers.php?refreshed=true");
                 } else {
