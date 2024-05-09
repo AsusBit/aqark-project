@@ -45,6 +45,7 @@
 </head>
 <body>
 <?php
+    // including the already made navigation bar
     include("navbar.html");
     ?>
     <div class="main-content">
