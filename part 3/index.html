@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Aqark</title>
+    <link rel="stylesheet" href="Home-Style.css">
+    <style>
+        /* Add CSS for the marquee and photo gallery here */
+        .marquee {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #000;
+            color: #fff;
+            overflow: hidden;
+            white-space: nowrap;
+            box-sizing: border-box;
+            animation: marquee 15s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { text-indent: 100% }
+            100% { text-indent: -100% }
+        }
+
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+        }
+
+        .mySlides {
+            display: none;
+            width: 100%;
+            height: auto;
+        }
+
+        .fade {
+            animation: fade 3s infinite;
+        }
+
+        @keyframes fade {
+            0%,100% { opacity: 0 }
+            20%,80% { opacity: 1 }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Logo.jpg" alt="Aqark" class="logo">
+        
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="buildings.html">Buildings</a></li>
+                <li><a href="contracts.html">Contracts</a></li>
+                <li><a href="workers.html">Workers</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <!-- Add links to the new pages here -->
+                <li><a href="questionnaire.html">Questionnaire</a></li>
+                <li><a href="calculate.html">Calculate</a></li>
+                <li><a href="fun.html">Fun Page</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="main-content">
+        <div class="background-image">
+            <section class="boxes">
+                <div class="box">
+                    <h2>Buildings</h2>
+                    <img src="bg3.webp" alt="Image 1">
+                </div>
+                <div class="box">
+                    <h2>Contracts</h2>
+                    <img src="bg2.jpg" alt="Image 2">
+                </div>
+                <div class="box">
+                    <h2>Workers</h2>
+                    <img src="bg1.jpg" alt="Image 3">
+                </div>
+            </section>
+        </div>
+        <!-- Add the photo gallery here -->
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <img src="building1.jpg" alt="Image 1" height="100px" width="100px">
+            </div>
+            <div class="mySlides fade">
+                <img src="building2.jpg" alt="Image 2" height="100px" width="100px">
+            </div>
+            <div class="mySlides fade">
+                <img src="building3.jpg" alt="Image 3" height="100px" width="100px">
+            </div>
+        </div>
+    </div>
+    </main>
+    <footer>
+        <p>© 2024 Your Website. All rights reserved.</p>
+        <div class="marquee">
+            <p>Welcome to the Aqark website! Today is <span id="date"></span>, and the time is <span id="time"></span></p>
+        </div>
+    </footer>
+    <script>
+// Initialize the slide index
+var slideIndex = 0;
+
+// Call the function to display the first slide
+showSlides();
+
+// Function to show slides
+function showSlides() {
+    // Get all elements with class="mySlides"
+    var slides = document.getElementsByClassName("mySlides");
+
+    // Hide all slides
+    for (var i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+
+    // Increment the slide index
+    slideIndex++;
+
+    // If the slide index is greater than the number of slides, reset it to 1
+    if (slideIndex > slides.length) {slideIndex = 1}
+
+    // Display the current slide
+    slides[slideIndex-1].style.display = "block";
+
+    // Call showSlides function every 3 seconds to change slide
+    setTimeout(showSlides, 3000);
+}
+
+// Function to update time
+function updateTime() {
+    // Get the current date and time
+    var now = new Date();
+    var date = now.toLocaleDateString();
+    var time = now.toLocaleTimeString();
+
+    // Update the 'date' and 'time' elements with the current date and time
+    document.getElementById('date').textContent = date;
+    document.getElementById('time').textContent = time;
+}
+
+// Call updateTime function every second to update time
+setInterval(updateTime, 1000);
+
+    </script>
+</body>
+</html>

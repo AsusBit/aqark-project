@@ -1,0 +1,147 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure header stays above other content */
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.main-content {
+    padding-top: 80px; /* Adjust according to header height */
+    padding-bottom: 30px; /* Adjust according to footer height */
+    min-height: calc(100vh - 110px); /* Total height of header and footer */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.background-image {
+    background-image: url('bg1.jpg');
+    background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+    width:100%;
+}
+
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px);
+    background-image: url('bg1.jpg'), url('bg2.jpg'), url('bg3.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: backgroundChange 9s infinite;
+}
+
+@keyframes backgroundChange {
+    0%, 33.33% {
+        background-image: url('bg1.jpg');
+    }
+    33.33%, 66.66% {
+        background-image: url('bg2.jpg');
+    }
+    66.66%, 100% {
+        background-image: url('bg3.webp');
+    }
+}
+
+.login-form {
+    background-color: rgba(41, 39, 39, 0.9); /* Added alpha value for transparency */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #fff; /* Added text color */
+}
+
+.login-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"],
+.login-form button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #f3f1f1;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.1); /* Added alpha value for transparency */
+    color: #fff; /* Added text color */
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    outline: none;
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+    border-color: #007bff;
+}
+
+.login-form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background-color: #0056b3;
+}
+
+.login-form p {
+    text-align: center;
+    margin-top: 10px;
+}
+

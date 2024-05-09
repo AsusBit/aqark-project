@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    background-image: url(about.bg.webp);
+    background-size:cover;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure header stays above other content */
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.main-content {
+    padding-top: 80px; /* Adjust according to header height */
+    padding-bottom: 30px; /* Adjust according to footer height */
+    min-height: calc(100vh - 110px); /* Total height of header and footer */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+/* Your existing CSS */
+
+/* Your existing CSS */
+
+.main-content {
+    padding: 20px;
+}
+
+.background-image {
+    background-size: cover;
+    background-position: center;
+    min-height: calc(100vh - 90px); /* Adjust according to header and footer height */
+    width: 100%;
+}
+
+.boxes {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping of boxes if they exceed the width */
+    justify-content: center; /* Center the boxes horizontally */
+    margin-top: 50px;
+}
+
+.box {
+    text-align: center;
+    margin: 60px; /* Add some margin between the boxes */
+    flex-basis: 30%; /* Set the initial size of each box */
+    max-width: 300px; /* Limit the maximum width of each box */
+}
+
+.box h2 {
+    margin-bottom: 10px; /* Add some space between the title and the image */
+}
+
+.box img {
+    width: 100%; /* Make the image fill the entire box */
+    height: auto;
+    border-radius: 10px;
+}
+h2{color: #f4f4f4;}
